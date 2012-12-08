@@ -1,4 +1,4 @@
-name = "Invoice Receipt"
+name = "Commerce Invoice Print"
 description = "Provides a printable invoice receipt along with HTML mailing rules."
 package = "Commerce (contrib)"
 dependencies[] = commerce
@@ -6,4 +6,4 @@ dependencies[] = commerce_order
 dependencies[] = emogrifier
 core = 7.x
 
-files[] = commerce_invoice_receipt.admin.inc
+files[] = commerce_invoice_print.admin.inc

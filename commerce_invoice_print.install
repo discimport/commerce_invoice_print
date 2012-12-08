@@ -3,11 +3,11 @@
 /**
  * Implements hook_install().
  */
-function commerce_invoice_receipt_install() {
+function commerce_invoice_print_install() {
   variable_set('mail_system',
     array_merge(
       variable_get('mail_system', array('default-system' => 'DefaultMailSystem')),
-      array( 'commerce_invoice_receipt' => 'InvoiceMailSystem')
+      array( 'commerce_invoice_print' => 'InvoiceMailSystem')
     )
   );
 }
@@ -15,8 +15,8 @@ function commerce_invoice_receipt_install() {
 /**
  * Implements hook_uninstall().
  */
-function commerce_invoice_receipt_uninstall() {
+function commerce_invoice_print_uninstall() {
   $mail_system = variable_get('mail_system', array('default-system' => 'DefaultMailSystem'));
-  unset($mail_system['commerce_invoice_receipt']);
+  unset($mail_system['commerce_invoice_print']);
   variable_set('mail_system', $mail_system);
 }

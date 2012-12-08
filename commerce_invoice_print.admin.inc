@@ -4,10 +4,10 @@
  *
  * @ingroup forms
  * @see
- *   commerce_invoice_receipt_mail_form_validate()
- *   commerce_invoice_receipt_mail_form_submit()
+ *   commerce_invoice_print_mail_form_validate()
+ *   commerce_invoice_print_mail_form_submit()
  */
-function commerce_invoice_receipt_mail_form($form_state, $order) {
+function commerce_invoice_print_mail_form($form_state, $order) {
   $form['order_id'] = array(
     '#type' => 'hidden',
     '#value' => $order['build_info']['args'][0]->order_id,
@@ -30,9 +30,9 @@ function commerce_invoice_receipt_mail_form($form_state, $order) {
 /**
  * Only mail invoices to valid email addresses.
  *
- * @see commerce_invoice_receipt_mail_form()
+ * @see commerce_invoice_print_mail_form()
  */
-function commerce_invoice_receipt_mail_form_validate($form, &$form_state) {
+function commerce_invoice_print_mail_form_validate($form, &$form_state) {
   $recipient = check_plain($form_state['values']['email']);
   if (empty($recipient) || !valid_email_address($recipient)) {
     form_set_error('email', t('Invalid e-mail address.'));
@@ -40,9 +40,9 @@ function commerce_invoice_receipt_mail_form_validate($form, &$form_state) {
 }
 
 /**
- * @see commerce_invoice_receipt_mail_form()
+ * @see commerce_invoice_print_mail_form()
  */
-function commerce_invoice_receipt_mail_form_submit($form, &$form_state) {
+function commerce_invoice_print_mail_form_submit($form, &$form_state) {
   $order = commerce_order_load($form_state['values']['order_id']);
   
   if ($order === FALSE) {
@@ -58,7 +58,7 @@ function commerce_invoice_receipt_mail_form_submit($form, &$form_state) {
   $account = user_load($order->uid);
   $language = user_preferred_language($account);
   
-  $sent = drupal_mail('commerce_invoice_receipt', 'invoice', $recipient, $language, $params, $from_email);
+  $sent = drupal_mail('commerce_invoice_print', 'invoice', $recipient, $language, $params, $from_email);
   
   if (!$sent) {
     drupal_set_message(t('E-mail failed.'));
