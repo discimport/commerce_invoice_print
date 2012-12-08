@@ -3,13 +3,13 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   </head>
   <body>
-    <table width="100%" binvoice="0" cellspacing="0" cellpadding="1" align="center" bgcolor="#CCC">
+    <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center" bgcolor="#CCC">
       <tr>
         <td>
-          <table width="100%" binvoice="0" cellspacing="0" cellpadding="5" align="center" bgcolor="#FFF" style="font-family: verdana, arial, helvetica; font-size: 10px;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="5" align="center" bgcolor="#FFF" style="font-family: verdana, arial, helvetica; font-size: 10px;">
             <tr>
               <td>
-                <table width="100%" binvoice="0" cellspacing="0" cellpadding="0" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tr>
                     <td nowrap="nowrap" style="line-height: 1.6em;" valign="middle">
                       [INSERT HEADER]
@@ -20,9 +20,9 @@
             </tr>
             <tr>
               <td>
-                <table width="100%" binvoice="0" cellspacing="0" cellpadding="0" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tr>
-                    <th colspan="2"><?php print t('Invoice Summary'); ?></b></th>
+                    <th colspan="2"><?php print t('Order Summary'); ?></b></th>
                   </tr>
                   <tr>
                     <td colspan="2">
@@ -31,20 +31,18 @@
                         <tr>
                           <td valign="top" width="50%">
                             <br/>
-                            <b><?php print t('Account No:'); ?></b> <?php print $info['invoice_uid']; ?><br/>
+                            <b><?php print t('Account No:'); ?></b> <?php print $info['order_uid']; ?><br/>
                             <br/>
-                            <b><?php print t('Invoice No:'); ?></b> <?php print $info['invoice_number']; ?><br/>
-                            <br/>
-                            <b><?php print t('Order Date:'); ?></b> <?php print date('j F, Y', $info['invoice_created']); ?><br/>
+                            <b><?php print t('Order Date:'); ?></b> <?php print date('j F, Y', $info['order_created']); ?><br/>
                             <br/>
                             <b><?php print t('Billing Address:'); ?></b><br />
                             <?php print $info['customer_billing']; ?><br />
                           </td>
                           <td valign="top" width="50%">
                             <br/>
-                            <b><?php print t('Order No:'); ?></b> <?php print $info['order_number']; ?><br/>
+                            <b><?php print t('Web Order No:'); ?></b> <?php print $info['order_number']; ?><br/>
                             <br/>
-                            <b><?php print t('Email Address:'); ?></b> <?php print $info['invoice_mail']; ?><br/>
+                            <b><?php print t('Email Address:'); ?></b> <?php print $info['order_mail']; ?><br/>
                             <br/>
                             <b><?php print t('Shipping Address:'); ?></b><br />
                             <?php print $info['customer_shipping']; ?><br />
@@ -59,13 +57,13 @@
             </tr>
             <tr>
               <td>
-                <table class="products" width="100%" binvoice="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                <table class="products" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tbody>
                     <tr>
                       <td class="line-items"><?php print $info['line_items']; ?></td>
                     </tr>
                     <tr>
-                      <td><?php print $info['invoice_total'] ?></td>
+                      <td><?php print $info['order_total'] ?></td>
                     </tr>
                   </tbody>
                 </table>
@@ -75,7 +73,7 @@
               <td>
                 <table>
                   <tr>
-                    <td colspan="2" style="background: #EEE; color: #666; padding: 1em; font-size: 0.9em; line-height: 1.6em; binvoice-top: #CCC 1px dotted; text-align: center;">
+                    <td colspan="2" style="background: #EEE; color: #666; padding: 1em; font-size: 0.9em; line-height: 1.6em; border-top: #CCC 1px dotted; text-align: center;">
                       [INSERT FOOTER]
                     </td>
                   </tr>
