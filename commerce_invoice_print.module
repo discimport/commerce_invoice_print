@@ -10,7 +10,7 @@
  */
 function commerce_invoice_print_menu() {
   $items = array();
-  
+  /*  
   $items['admin/commerce/orders/%commerce_order/view/print'] = array(
     'title' => 'Print',
     'page callback' => 'commerce_invoice_print_view_print',
@@ -45,7 +45,7 @@ function commerce_invoice_print_menu() {
     'weight' => 2,
     'file' => 'commerce_invoice_print.admin.inc',
   );
-  
+  */
   $items['user/%user/invoices/%commerce_invoice/print'] = array(
     'title' => 'Printable Invoice',
     'page callback' => 'commerce_invoice_print_view_print',
@@ -56,13 +56,13 @@ function commerce_invoice_print_menu() {
     'weight' => 2,
     'file' => 'commerce_invoice_print.admin.inc',
   );  
-  
+  /*
   $items['user/%user/orders/%commerce_order/view'] = array(
     'title' => 'View',
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'weight' => 1,
   );
-  
+  */
   return $items;
 }
 
