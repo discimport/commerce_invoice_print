@@ -66,7 +66,7 @@ function commerce_invoice_print_menu() {
   return $items;
 }
 
-function commerce_order_print_view_print($order, $view_mode = 'invoice', $breadcrumb = TRUE) {
+function commerce_order_print_view_print($order, $view_mode = 'order', $breadcrumb = TRUE) {
   $styles[] = array(
     'type' => 'file',
     'media' => 'all',
