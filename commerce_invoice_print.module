@@ -293,6 +293,11 @@ function _commerce_invoice_print_get_invoice_info($invoice, $build) {
   if (isset($build['commerce_invoice'][$invoice->invoice_id]['commerce_order_total'])) {
     $info['invoice_total'] = $build['commerce_invoice'][$invoice->invoice_id]['commerce_order_total'][0]['#markup'];
   }
-  
+
+  $view = views_get_view('commerce_payment_order');
+  $view->set_arguments(array($build['commerce_invoice'][$invoice->invoice_id]['#entity']->order_id));
+  $view->hide_admin_links = TRUE;
+  $info['payments'] = $view->preview();
+
   return $info;
 }

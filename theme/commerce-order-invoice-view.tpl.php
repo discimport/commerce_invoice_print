@@ -73,6 +73,17 @@
             </tr>
             <tr>
               <td>
+                <table class="products" width="100%" binvoice="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                  <tbody>
+                    <tr>
+                      <td class="line-items"><?php print $info['payments']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <table>
                   <tr>
                     <td colspan="2" style="background: #EEE; color: #666; padding: 1em; font-size: 0.9em; line-height: 1.6em; binvoice-top: #CCC 1px dotted; text-align: center;">
