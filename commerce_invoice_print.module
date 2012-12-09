@@ -10,7 +10,7 @@
  */
 function commerce_invoice_print_menu() {
   $items = array();
-  /*  
+ 
   $items['admin/commerce/orders/%commerce_order/view/print'] = array(
     'title' => 'Print',
     'page callback' => 'commerce_invoice_print_view_print',
@@ -22,7 +22,7 @@ function commerce_invoice_print_menu() {
     'parent' => 'admin/commerce/orders/%commerce_order',
     'file' => 'commerce_invoice_print.admin.inc',
   );
-  
+  /* 
   $items['admin/commerce/orders/%commerce_order/view/mail'] = array(
     'title' => 'Email',
     'page callback' => 'drupal_get_form',
@@ -34,7 +34,7 @@ function commerce_invoice_print_menu() {
     'parent' => 'admin/commerce/orders/%commerce_order',
     'file' => 'commerce_invoice_print.admin.inc',
   );
-  
+  */
   $items['user/%user/orders/%commerce_order/print'] = array(
     'title' => 'Printable Order',
     'page callback' => 'commerce_order_print_view_print',
@@ -45,7 +45,7 @@ function commerce_invoice_print_menu() {
     'weight' => 2,
     'file' => 'commerce_invoice_print.admin.inc',
   );
-  */
+
   $items['user/%user/invoices/%commerce_invoice/print'] = array(
     'title' => 'Printable Invoice',
     'page callback' => 'commerce_invoice_print_view_print',
@@ -262,6 +262,11 @@ function _commerce_invoice_print_get_order_info($order, $build) {
   if (isset($build['commerce_order'][$order->order_id]['commerce_order_total'])) {
     $info['order_total'] = $build['commerce_order'][$order->order_id]['commerce_order_total'][0]['#markup'];
   }
+
+  $view = views_get_view('commerce_invoice_print_payments');
+  $view->set_arguments(array($order->order_id));
+  $view->hide_admin_links = TRUE;
+  $info['payments'] = $view->preview();
   
   return $info;
 }

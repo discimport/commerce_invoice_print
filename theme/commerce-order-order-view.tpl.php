@@ -12,7 +12,7 @@
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tr>
                     <td nowrap="nowrap" style="line-height: 1.6em;" valign="middle">
-                      [INSERT HEADER]
+                      <img src="http://discimport.dk/sites/discimport.dk/files/dilogo3_0.png" alt="Discimport.dk" id="logo">
                     </td>
                   </tr>
                 </table>
@@ -71,10 +71,23 @@
             </tr>
             <tr>
               <td>
+                <h2><?php print t('Payments'); ?></h2>
+                <table class="products" width="100%" binvoice="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                  <tbody>
+                    <tr>
+                      <td class="line-items"><?php print $info['payments']; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <table>
                   <tr>
                     <td colspan="2" style="background: #EEE; color: #666; padding: 1em; font-size: 0.9em; line-height: 1.6em; border-top: #CCC 1px dotted; text-align: center;">
-                      [INSERT FOOTER]
+                      Discimport I/S - Fundervej 71 - Engesvang - Tlf.: 5192 4093 - E-mail: mikael@discimport.dk - CVR: 28370318 - discimport.dk<br>
+                      Bank: Spar Nord - Konto: 9347-4565547955 - IBAN: DK3990044565547955 - Swift: SPNODK22
                     </td>
                   </tr>
                 </table>
