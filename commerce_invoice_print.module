@@ -81,9 +81,9 @@ function commerce_order_print_view_print($order, $view_mode = 'invoice', $breadc
   
   $build = entity_view('commerce_order', array($order->order_id => $order), $view_mode, NULL, TRUE);
   
-  $invoice_info = _commerce_invoice_print_get_order_info($order, $build);
+  $order_info = _commerce_invoice_print_get_order_info($order, $build);
   
-  $html .= theme('commerce_order_order_view', array('info' => $invoice_info, 'order' => $order));
+  $html .= theme('commerce_order_order_view', array('info' => $order_info, 'order' => $order));
   
   print _emogrifier_process($html, NULL, NULL, NULL, NULL, NULL);
 }
@@ -129,6 +129,11 @@ function commerce_invoice_print_theme() {
       'variables' => array('info' => NULL, 'order' => NULL),
       'path' => drupal_get_path('module', 'commerce_invoice_print') . '/theme',
       'template' => 'commerce-order-invoice-view',
+    ),
+    'commerce_order_order_view' => array(
+      'variables' => array('info' => NULL, 'order' => NULL),
+      'path' => drupal_get_path('module', 'commerce_invoice_print') . '/theme',
+      'template' => 'commerce-order-order-view',
     ),
   );
 }
