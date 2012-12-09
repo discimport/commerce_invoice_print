@@ -73,6 +73,7 @@
             </tr>
             <tr>
               <td>
+                <h2><?php print t('Payments'); ?></h2>
                 <table class="products" width="100%" binvoice="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tbody>
                     <tr>

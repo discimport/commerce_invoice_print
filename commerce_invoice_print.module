@@ -294,10 +294,20 @@ function _commerce_invoice_print_get_invoice_info($invoice, $build) {
     $info['invoice_total'] = $build['commerce_invoice'][$invoice->invoice_id]['commerce_order_total'][0]['#markup'];
   }
 
-  $view = views_get_view('commerce_payment_order');
+  $view = views_get_view('commerce_invoice_print_payments');
   $view->set_arguments(array($build['commerce_invoice'][$invoice->invoice_id]['#entity']->order_id));
   $view->hide_admin_links = TRUE;
   $info['payments'] = $view->preview();
 
   return $info;
 }
+
+/**
+  * Implements hook_views_api().
+  */
+  function commerce_kickstart_order_views_api() {
+    return array(
+      "version" => "3.0",
+      'path' => drupal_get_path('module', 'commerce_invoice_print') . '/includes/views',
+    );
+  }
